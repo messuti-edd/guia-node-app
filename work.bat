@@ -1,1 +1,1 @@
-sh
+cmd.exe /K C:\cygwin\bin\sh.exe
