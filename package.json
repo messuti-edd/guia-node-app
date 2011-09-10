@@ -1,8 +1,9 @@
 {
-	"name": "node-example",
-	"version": "0.0.1",
+	"name": "node-guia",
+	"version": "0.0.5",
 	"dependencies": {
-		"express": "latest",
-		"socket.io": "latest"
+		"express"	: "latest",
+		"socket.io"	: "latest",
+		"mongodb"	: "latest"
 	}
 }
