@@ -8,7 +8,7 @@ var scz_cotas	= require('./server_scz_cotas');
 
 var app = express.createServer(express.logger());
 
-app.use("/", express.static(__dirname + '/public'));
+app.use("/", express.static(__dirname + '/public/test.html'));
 
 app.get('/search/:nombre/:apellido', function(request, response) {
 	
