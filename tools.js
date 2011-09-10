@@ -18,5 +18,10 @@ function extendd(obj1, obj2) {
 	}
 }
 
+function capitaliseFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
 exports.getStringsBetween = getStringsBetween;
 exports.extend = extendd;
+exports.capitaliseFirstLetter = capitaliseFirstLetter;

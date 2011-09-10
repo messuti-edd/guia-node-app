@@ -15,15 +15,17 @@
 
 #header {
 	width: 100%;
-	background-color: #666666;
+	background-color: #F2F2F2;
 	margin-bottom: 10px;
 	padding: 10px;
+	border-bottom: 1px solid #C9C9C9;
 }
 
 #header .title {
-	color: white;
+	color: #DE77AE;
 	font-size: 42px;
 	font-family: 'Comfortaa', cursive;
+	text-shadow: #a8a7a7 2px 2px 3px;
 }
 
 input, textarea {
@@ -39,10 +41,18 @@ input, textarea {
 	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	
+/*	font-weight: bold;*/
+	font-family: 'Carme', cursive;
+	font-size: 16px;
 }
 
 .empty_hidder {
-	color: #C9C9C9 !important;
+	color: #cccccc !important;
+	font-weight: normal;
+/*	font-style: italic;*/
+	font-family: 'Patrick Hand', cursive;
+	font-size: 17px;
 }
 
 textarea {
@@ -73,10 +83,16 @@ input.submit {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	cursor: pointer;
+	
+	margin-top: 7px !important;
 }
 
 input.submit:hover {
 	background-color: #7697c9;
+}
+
+#search_bar {
+	margin-top: 20px;
 }
 
 #search_bar input {
@@ -91,14 +107,9 @@ input.submit:hover {
 	display: none;
 }
 
-table#persons {
-	margin-top: 20px;
-}
-
-
 #persons
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-family: "Questrial", "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
 	background: #fff;
 	margin: 45px 0;
@@ -107,8 +118,8 @@ table#persons {
 }
 #persons th
 {
-	font-size: 14px;
-	font-weight: normal;
+	font-size: 16px;
+	font-weight: bold;
 	color: #617798;
 	padding: 10px 8px;
 	border-bottom: 2px solid #617798;
@@ -116,10 +127,14 @@ table#persons {
 #persons td
 {
 	color: #669;
-	padding: 9px 8px 0px 8px;
+	padding: 20px 8px 9px 8px;
+	border-bottom: 1px solid #ccc;
+	font-size: 16px;
 }
 
 #persons tbody tr:hover td
 {
-	color: #009;
+/*	color: #666666;*/
+/*	font-weight: bold;*/
+	background-color: #fff2f9;
 }

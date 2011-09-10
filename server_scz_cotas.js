@@ -123,7 +123,10 @@ var server = {
 		for (var i in rows) {
 			var cells = tools.getStringsBetween(rows[i], '<td><font face="Verdana" color="Black" size="1">', "<");
 			if (cells[0] != undefined && cells[0].length > 0) {
-				this.datas.push([ cells[0], cells[1], cells[3] ]);
+				this.datas.push([ 
+					tools.capitaliseFirstLetter(cells[0]), // nombre
+					tools.capitaliseFirstLetter(cells[1]), // direccion
+					cells[3] ]); // fono
 			}
 		}
 		
