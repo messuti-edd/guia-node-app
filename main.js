@@ -3,20 +3,22 @@ var http		= require('http');
 var querystring = require('querystring');
 var tools		= require('./tools');
 var scz_cotas	= require('./server_scz_cotas');
+
 //var db			= require('./db');
 
 var app = express.createServer(express.logger());
 
 app.use("/", express.static(__dirname + '/public'));
 
-app.get('/', function(request, response) {
+app.get('/search/:nombre/:apellido', function(request, response) {
 	
-	scz_cotas.getData({"nombre": "juan", "apellido": "suarez"}, 
-	function(data) {
-		console.log("responding");
-		response.send(JSON.stringify(data));
-//		response.send("hola");
-	});
+	
+	scz_cotas.getData({"nombre": request.params.nombre, "apellido": request.params.apellido}, 
+		function(data) {
+			console.log("responding");
+			response.send(JSON.stringify(data));
+			scz_cotas.restart();
+		});
 });
 
 var port = process.env.PORT || 3000;

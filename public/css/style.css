@@ -1,0 +1,125 @@
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content {
+	width: 900px;
+	padding: 0px;
+}
+
+#page {
+	width: 900px;
+	margin: 0 auto;
+}
+
+#header {
+	width: 100%;
+	background-color: #666666;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+#header .title {
+	color: white;
+	font-size: 42px;
+	font-family: 'Comfortaa', cursive;
+}
+
+input, textarea {
+	padding: 9px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	color: #666666;
+	width: 200px;
+	background: #FFFFFF url('bg_form.png') left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+.empty_hidder {
+	color: #C9C9C9 !important;
+}
+
+textarea {
+	width: 400px;
+	max-width: 400px;
+	height: 150px;
+	line-height: 150%;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+	border-color: #C9C9C9;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+}
+
+.form label {
+	margin-left: 10px;
+	color: #999999;
+}
+
+input.submit {
+	width: auto;
+	padding: 9px 15px;
+	background: #617798;
+	border: 0;
+	font-size: 14px;
+	color: #FFFFFF;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	cursor: pointer;
+}
+
+input.submit:hover {
+	background-color: #7697c9;
+}
+
+#search_bar input {
+	margin-left: 6px;
+	margin-right: 6px;
+	float: left;
+	margin-top: 5px;
+}
+
+#search_bar .loading {
+	float: left;
+	display: none;
+}
+
+table#persons {
+	margin-top: 20px;
+}
+
+
+#persons
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	background: #fff;
+	margin: 45px 0;
+	border-collapse: collapse;
+	text-align: left;
+}
+#persons th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #617798;
+	padding: 10px 8px;
+	border-bottom: 2px solid #617798;
+}
+#persons td
+{
+	color: #669;
+	padding: 9px 8px 0px 8px;
+}
+
+#persons tbody tr:hover td
+{
+	color: #009;
+}

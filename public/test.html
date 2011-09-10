@@ -1,14 +1,72 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-	<body>
-		<div>test</div>
-	</body>
+<!--		<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+		<meta name="title" content="Supermercado Virtual Gourmart" />
+		<meta name="description" content="Gourmart es el primer Supermercado Virtual en Bolivia." />
+		<link rel="image_src" href="http://www.gourmart.net/images/icons/LogoGourmart1.jpg" />
+
+		<meta property="og:title" content="Supermercado Virtual Gourmart"/>
+		<meta property="og:type" content="company"/>
+		<meta property="og:url" content="http://www.gourmart.net"/>
+		<meta property="og:image" content="http://www.gourmart.net/images/icons/LogoGourmart1.jpg"/>
+		<meta property="og:site_name" content="Gourmart.net"/>
+		<meta property="fb:app_id" content="2530096808"/>
+		<meta property="og:description"
+			  content="Gourmart es el primer Supermercado Virtual en Bolivia."/>-->
+		
+		<link href="images/icons/logo_G_Gourmart.ico" type="image/x-icon" rel="shortcut icon" />
+		<link type="text/css" href="css/reset.css" rel="stylesheet" />
+		<link type="text/css" href="css/style.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Passero+One|Comfortaa|Patrick+Hand' rel='stylesheet' type='text/css'>
+        <title>Guia App</title>
+    </head>
+
+    <body>
+		<div id="wrapper">
+			<div id="container">
+				<div id="header">
+					<span class="title">Guia App</span>
+					
+				</div>
+				
+				<div style="clear: both"></div>
+				
+				<div id="page">
+					<div id="search_bar">
+						<input class="hidder" type="text" name="nombre" default_value="Nombre *" value="" />
+						<input class="hidder" type="text" name="apellido" default_value="Apellido *" value="" />
+						<input class="hidder" type="text" name="calle" default_value="Calle" value="" />
+						
+						<input class="submit" type="button" name="buscar" value="Buscar" />
+						
+						<img class="loading" src="images/loading.gif" alt="" />
+						
+						<div style="clear: both"></div>
+					</div>
+					
+					<table border="0" id="persons">
+						<thead>
+							<tr>
+								<th style="width: 300px">Nombre</th>
+								<th style="width: 200px">Tel&eacute;fono</th>
+								<th style="width: 400px">Direcci&oacute;n</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="js/tools.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/backbone-min.js"></script>
+		<script type="text/javascript" src="js/guia.js"></script>
+    </body>
 </html>

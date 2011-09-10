@@ -14,6 +14,17 @@ var server = {
 	datas: [],
 	cookie: null,
 	
+	restart: function() {
+		this.view_state = '/wEPDwULLTEyNTk4MDE1MTdkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBQpjbWRQQnVzY2FyBQpjbWRFQnVzY2FyE0MDoaTgcV+/y9SlLq0pr7csGvc=';
+		this.event_validation = '/wEWCwK2h8+7CALe5pGLCwLf5pGLCwKWtPDnAQLCz9KyBgLhg8eMBgK2t4G2CQKRlOOLCwKQlOOLCwLhr/DnAQK2t4U9MAzgYj6ro8NfmR5TLqXZDiSQOb8=';
+		this.event_target = null;
+		this.path = '/GuiaTelefonica2006/forms/default.aspx';
+		this.main = true;
+		this.pageFormat = "grdPersona$ctl14$ctl0";
+		this.datas = [];
+		this.cookie = null;
+	},
+	
 	
 	getData: function(opts, callback) {
 		var self = this;
@@ -22,6 +33,7 @@ var server = {
 		  '__EVENTVALIDATION' : self.event_validation
 		};
 		
+		// Es otra pagina que la default
 		if (self.event_target != null) {
 			tools.extend(data, {
 				"__EVENTTARGET": self.pageFormat + self.event_target,
@@ -31,6 +43,7 @@ var server = {
 			self.path = '/GuiaTelefonica2006/forms/Listado.aspx';
 			self.event_target = null;
 		}
+		// Es la default, se definen los campos de busqueda
 		else {
 			tools.extend(data, {
 				'PPoblacion'	: '1',
@@ -46,7 +59,7 @@ var server = {
 			self.path = '/GuiaTelefonica2006/forms/default.aspx';
 		}
 		
-		console.log("data sent: " + JSON.stringify(data));
+		console.log(JSON.stringify(data));
 		
 		var post_data = querystring.stringify(data);
 		
@@ -61,15 +74,16 @@ var server = {
 			}
 		};
 		
+		// Si se obtubo cookies de una peticion anterior se envian
 		if (self.cookie != null) {
 			options.headers['Cookie'] = self.cookie;
 		}
 
 		var req = http.request(options, function(res) {
-//			console.log('HEADERS: ' + JSON.stringify(res.headers));
+			
+			// Se revisa si se recivio cookies
 			if (res.headers["set-cookie"] != undefined) {
 				self.cookie = res.headers["set-cookie"];
-				console.log("cookies: "+res.headers["set-cookie"]);
 			}
 			var got_data = "";
 
@@ -79,11 +93,10 @@ var server = {
 			});
 
 			res.on("end", function() {
+				//console.log(got_data+"\n\n\n\n\n\n\n\n");
 				self.extract(got_data, function(data) {
 					callback(data);
 				});
-
-				
 			});
 		});
 
@@ -111,34 +124,36 @@ var server = {
 			var cells = tools.getStringsBetween(rows[i], '<td><font face="Verdana" color="Black" size="1">', "<");
 			if (cells[0] != undefined && cells[0].length > 0) {
 				this.datas.push([ cells[0], cells[1], cells[3] ]);
-				console.log("nombre: "+cells[0]+", num: "+cells[3]);
 			}
 		}
 		
-		
-		
+		// si es la pagina default...
 		if (this.main) {
-			console.log("first data\n");
 			this.main = false;
 			var pages = tools.getStringsBetween(table_pers[0], "<a href=\"javascript:__doPostBack\\('", "'");
 			this.pages_count = pages.length;
 			this.pages_index = 0;
 			
+			// se hacen peticiones recurcivas a las demas paginas
 			this.getPages(function() {
 				callback(self.datas);
 			});
 			
 		}
 		else {
+			// Si no solo se devuelven los datos
 			callback(this.datas);
 		}
 	},
 	
+	/**
+	 * Funcion recursiva para obtener todas las paginas
+	 * Utiliza un contador y un index en el objeto server
+	 */
 	getPages: function(callback) {
 		var self = this;
 		if (this.pages_index < this.pages_count) {
 			self.event_target = this.pages_index+1;
-			console.log(this.pages_index+" data\n");
 			this.getData({}, function(data) {
 				self.getPages(callback);
 			});

@@ -1,3 +1,25 @@
+/**
+ * DB Structure:
+ * 
+ *		+ personas
+ *		|- nombre
+ *		|- telefono
+ *		|- direccion
+ *		|- departamento_id
+ *		
+ *		 
+ *		+ departamentos
+ *		|- nombre
+ *		
+ *		 
+ *		+ busquedas
+ *		|- nombre
+ *		|- apellido
+ *		|- fecha 
+ * 
+ */
+
+
 GLOBAL.DEBUG = true;
 
 sys = require("sys"),
