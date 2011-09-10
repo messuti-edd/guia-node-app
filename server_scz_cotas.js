@@ -3,6 +3,8 @@ var http		= require('http');
 var querystring = require('querystring');
 
 var server = {
+	id: 1,
+	name: "SCZ Cotas",
 	view_state: '/wEPDwULLTEyNTk4MDE1MTdkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBQpjbWRQQnVzY2FyBQpjbWRFQnVzY2FyE0MDoaTgcV+/y9SlLq0pr7csGvc=',
 	event_validation: '/wEWCwK2h8+7CALe5pGLCwLf5pGLCwKWtPDnAQLCz9KyBgLhg8eMBgK2t4G2CQKRlOOLCwKQlOOLCwLhr/DnAQK2t4U9MAzgYj6ro8NfmR5TLqXZDiSQOb8=',
 	event_target: null,
@@ -13,6 +15,9 @@ var server = {
 	pageFormat: "grdPersona$ctl14$ctl0",
 	datas: [],
 	cookie: null,
+	toAbort: null,
+	abort: false,
+	requests: [],
 	
 	restart: function() {
 		this.view_state = '/wEPDwULLTEyNTk4MDE1MTdkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBQpjbWRQQnVzY2FyBQpjbWRFQnVzY2FyE0MDoaTgcV+/y9SlLq0pr7csGvc=';
@@ -59,7 +64,7 @@ var server = {
 			self.path = '/GuiaTelefonica2006/forms/default.aspx';
 		}
 		
-		console.log(JSON.stringify(data));
+		//console.log(JSON.stringify(data));
 		
 		var post_data = querystring.stringify(data);
 		
@@ -99,10 +104,22 @@ var server = {
 				});
 			});
 		});
+		
+		self.requests.push(req);
+		
+		if (self.main) {
+			self.toAbort = setTimeout(function() {
+				self.abort = true;
+				console.log("ABORTING");
+				for (var i in self.requests) {self.requests[i].abort();}
+				callback({error: true, errorMssg: "Hubo un error, inténtalo de nuevo :("});
+			}, 20000);
+		}
 
 		req.on('error', function(e) {
 			console.log('problem with request: ' + e.message);
 		});
+		
 		
 		// write data to request body
 		req.write(post_data);
@@ -139,6 +156,8 @@ var server = {
 			
 			// se hacen peticiones recurcivas a las demas paginas
 			this.getPages(function() {
+				clearTimeout(self.toAbort);
+				console.log("** not aborting");
 				callback(self.datas);
 			});
 			

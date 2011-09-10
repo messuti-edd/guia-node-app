@@ -18,6 +18,7 @@
 		<link href="images/icons/logo_G_Gourmart.ico" type="image/x-icon" rel="shortcut icon" />
 		<link type="text/css" href="css/reset.css" rel="stylesheet" />
 		<link type="text/css" href="css/style.css" rel="stylesheet" />
+		<link type="text/css" href="css/chosen.css" rel="stylesheet" />
 		<link href='http://fonts.googleapis.com/css?family=Comfortaa|Patrick+Hand|Carme|Questrial' 
 			  rel='stylesheet' type='text/css' />
         			
@@ -36,6 +37,12 @@
 				
 				<div id="page">
 					<div id="search_bar">
+						<select name="dep">
+							<option value="">Departamento *</option>
+							<option value="1">Santa Cruz</option>
+							<option value="2">Trinidad</option>
+							<option value="3" disabled>La Paz</option>
+						</select>
 						<input class="hidder" type="text" name="nombre" default_value="Nombre *" value="" />
 						<input class="hidder" type="text" name="apellido" default_value="Apellido *" value="" />
 						<input class="hidder" type="text" name="calle" default_value="Calle (opcional)" value="" />
