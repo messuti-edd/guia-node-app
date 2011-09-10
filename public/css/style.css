@@ -26,6 +26,19 @@
 	font-size: 42px;
 	font-family: 'Comfortaa', cursive;
 	text-shadow: #a8a7a7 2px 2px 3px;
+	float: left;
+	margin-left: 30px;
+}
+
+#header .byedd {
+	float: right;
+}
+
+#header .byedd a {
+	font-family: 'Patrick Hand', cursive;
+	text-decoration: none;
+	font-size: 20px;
+	color: #617798;
 }
 
 /******************************** formulario **/
