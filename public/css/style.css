@@ -17,7 +17,7 @@
 	width: 100%;
 	background-color: #F2F2F2;
 	margin-bottom: 10px;
-	padding: 10px;
+	padding: 10px 0;
 	border-bottom: 1px solid #C9C9C9;
 }
 
@@ -27,11 +27,12 @@
 	font-family: 'Comfortaa', cursive;
 	text-shadow: #a8a7a7 2px 2px 3px;
 	float: left;
-	margin-left: 30px;
+	margin-left: 20px;
 }
 
 #header .byedd {
 	float: right;
+	margin-right: 20px;
 }
 
 #header .byedd a {
