@@ -2,8 +2,8 @@
 	"name": "node-guia",
 	"version": "0.0.5",
 	"dependencies": {
-		"express"	: "latest",
-		"socket.io"	: "latest",
-		"mongodb"	: "latest"
+		"express"	: "2.4.6",
+		"socket.io"	: "0.8.4",
+		"mongodb"	: "0.9.6"
 	}
 }
