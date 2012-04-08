@@ -13,7 +13,9 @@ var app = express.createServer(express.logger());
 
 app.use("/", express.static(__dirname + '/public'));
 
-app.post("/", express.static(__dirname + '/public'));
+app.post('/', function(req, res){
+    res.sendfile(__dirname + '/public/index.html');
+});
 
 app.get('/search/:depart/:nombre/:apellido/:calle', function(request, response) {
 	
