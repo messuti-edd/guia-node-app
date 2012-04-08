@@ -13,6 +13,8 @@ var app = express.createServer(express.logger());
 
 app.use("/", express.static(__dirname + '/public'));
 
+app.post("/", express.static(__dirname + '/public'));
+
 app.get('/search/:depart/:nombre/:apellido/:calle', function(request, response) {
 	
 	var gServer = null;
