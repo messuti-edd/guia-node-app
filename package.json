@@ -2,7 +2,7 @@
 	"name": "node-guia",
 	"version": "0.0.5",
 	"engines": {
-		"node":  "0.4.11"
+		"node":  "0.4.7"
 	},
 	"dependencies": {
 		"express"	: "latest",
