@@ -1,5 +1,6 @@
 var tools		= require('./tools');
 var http		= require('http');
+var https		= require('https');
 var querystring = require('querystring');
 
 var server = {
@@ -8,9 +9,10 @@ var server = {
 	view_state: '/wEPDwULLTEyNTk4MDE1MTdkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBQpjbWRQQnVzY2FyBQpjbWRFQnVzY2FyE0MDoaTgcV+/y9SlLq0pr7csGvc=',
 	event_validation: '/wEWCwK2h8+7CALe5pGLCwLf5pGLCwKWtPDnAQLCz9KyBgLhg8eMBgK2t4G2CQKRlOOLCwKQlOOLCwLhr/DnAQK2t4U9MAzgYj6ro8NfmR5TLqXZDiSQOb8=',
 	event_target: null,
-	host: '200.58.175.36',
-	port: 80,
+	host: 'wsl.cotas.com',
+	port: 443,
 	path: '/GuiaTelefonica2006/forms/default.aspx',
+	intro: true,
 	main: true,
 	pageFormat: "grdPersona$ctl14$ctl0",
 	datas: [],
@@ -55,8 +57,8 @@ var server = {
 				'PNombre'		: opts.nombre,
 				'PPaterno'		: opts.apellido,
 				'POtro'			: '',
-				'cmdPBuscar.x'	: '55',
-				'cmdPBuscar.y'	: '50',
+				'cmdPBuscar.x'	: '66',
+				'cmdPBuscar.y'	: '14',
 				'EPoblacion'	: '1',
 				'ENombre'		: ''
 			});
@@ -84,7 +86,7 @@ var server = {
 			options.headers['Cookie'] = self.cookie;
 		}
 
-		var req = http.request(options, function(res) {
+		var req = https.request(options, function(res) {
 			
 			// Se revisa si se recivio cookies
 			if (res.headers["set-cookie"] != undefined) {
@@ -98,7 +100,7 @@ var server = {
 			});
 
 			res.on("end", function() {
-				//console.log(got_data+"\n\n\n\n\n\n\n\n");
+				//console.log("Got data: "+got_data+"\n\n\n\n\n\n\n\n");
 				self.extract(got_data, function(data) {
 					callback(data);
 				});
@@ -128,6 +130,7 @@ var server = {
 	
 	extract: function(data, callback) {
 		var self = this;
+		
 		data = data.replace(/\n/g, "");
 		data = data.replace(/\r/g, "");
 
