@@ -1,9 +1,10 @@
 {
 	"name": "node-guia",
 	"version": "0.0.5",
+	"engine": "node 0.4.11",
 	"dependencies": {
-		"express"	: "2.4.6",
-		"socket.io"	: "0.8.4",
-		"mongodb"	: "0.9.6"
+		"express"	: "latest",
+		"socket.io"	: "latest",
+		"mongodb"	: "latest"
 	}
 }
