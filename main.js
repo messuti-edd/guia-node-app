@@ -4,10 +4,7 @@ var querystring = require('querystring');
 var tools		= require('./tools');
 //var db			= require('./db');
 
-use(require('facebook').Facebook, {
-  apiKey:		'208631342578582', 
-  apiSecret:	'bd1caa1f9d2f5776e799eaf488dff238'
-});
+
 
 var gServers = [
 	require('./server_scz_cotas'), 

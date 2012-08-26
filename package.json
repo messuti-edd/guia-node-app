@@ -6,8 +6,6 @@
 	},
 	"dependencies": {
 		"express"	: "latest",
-		"socket.io"	: "latest",
-		"hashlib"	: "latest",
 		"mongodb"	: "0.9.6-7"
 	}
 }
